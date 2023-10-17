@@ -1,18 +1,18 @@
-<h3 class="card-title">จัดการสถานะการเเจ้งซ่อม</h3>
+<h3 class="card-title">ฟอร์มเพิ่มข้อมูล</h3>
 <br>
 <hr>
 <form action="" method="post" class="form-horizontal">
-  
+ 
   <div class="form-group row">
-    <label class="col-sm-2 col-form-label">ชื่อสถานะการเเจ้งซ่อม</label>
+    <label class="col-sm-2 col-form-label">ชื่อสถานะการแจ้งซ่อม</label>
     <div class="col-sm-5">
-      <input status="text" name="status_name" class="form-control" placeholder="ชื่อสถานะการเเจ้งซ่อม" required>
+      <input type="text" name="status_name" class="form-control" placeholder="ชื่อสถานะ" required>
     </div>
   </div>
 
   <div class="form-group row">
     <div class="col-sm-10 offset-sm-2">
-      <button status="submit" class="btn btn-info">เพิ่มข้อมูล</button>
+      <button type="submit" class="btn btn-info">เพิ่มข้อมูล</button>
       <a href="status.php" class="btn btn-danger">ยกเลิก</a>
     </div>
   </div>
@@ -25,7 +25,7 @@
 // exit;
 
 //ถ้ามีค่าส่งมาจากฟอร์ม
-if (isset($_POST['status_name'])) {
+if (isset($_POST['status_name'])){
 
   //ประกาศตัวแปรรับค่าจากฟอร์ม
   $status_name =  $_POST['status_name'];
@@ -40,7 +40,7 @@ if (isset($_POST['status_name'])) {
                         swal({
                             title: "ชื่อสถานะ ซ้ำ !! ",  
                             text: "เพิ่มข้อมูลใหม่อีกครั้ง",
-                            status: "warning"
+                            type: "warning"
                         }, function() {
                             window.location = "status.php?act=add"; //หน้าที่ต้องการให้กระโดดไป
                         });
@@ -53,15 +53,13 @@ if (isset($_POST['status_name'])) {
       status_name
       )
     VALUES 
-    (
-        :status_name
-        )
+    ( 
+      :status_name
+      )
       ");
 
     //bin param
-
     $stmt->bindParam(':status_name', $status_name, PDO::PARAM_STR);
-
     $result = $stmt->execute();
 
     $condb = null; //close connect db
@@ -70,7 +68,7 @@ if (isset($_POST['status_name'])) {
              setTimeout(function() {
               swal({
                   title: "เพิ่มข้อมูลสำเร็จ",
-                  status: "success"
+                  type: "success"
               }, function() {
                   window.location = "status.php"; //หน้าที่ต้องการให้กระโดดไป
               });
@@ -81,7 +79,7 @@ if (isset($_POST['status_name'])) {
              setTimeout(function() {
               swal({
                   title: "เกิดข้อผิดพลาด",
-                  status: "error"
+                  type: "error"
               }, function() {
                   window.location = "status.php"; //หน้าที่ต้องการให้กระโดดไป
               });

@@ -12,7 +12,7 @@ include 'sidebar_menu.php';
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>จัดการสถานะการเเจ้งซ่อม</h1>
+            <h1>จัดการข้อมูลสถานะการแจ้งซ่อม</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -30,9 +30,9 @@ include 'sidebar_menu.php';
                   if($act == 'add'){
                     include 'status_form_add.php';
                   }else if($act == 'delete'){
-                    include 'type_delete.php';
+                    include 'status_delete.php';
                   }else if($act == 'edit'){
-                    include 'type_form_edit.php';
+                    include 'status_form_edit.php';
                   }else{
                     include 'status_list.php';
                     

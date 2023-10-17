@@ -2,11 +2,11 @@
 
 //print_r($_GET);
 
-    if(isset($_GET['type_id']) && isset($_GET['act']) && $_GET['act']=='delete'){
+    if(isset($_GET['status_id']) && isset($_GET['act']) && $_GET['act']=='delete'){
         //ประกาศตัวแปรรับค่าจาก param method get
-        $type_id = $_GET['type_id'];
-        $stmt = $condb->prepare('DELETE FROM tbl_type WHERE type_id=:type_id');
-        $stmt->bindParam(':type_id', $type_id , PDO::PARAM_INT);
+        $status_id = $_GET['status_id'];
+        $stmt = $condb->prepare('DELETE FROM tbl_status WHERE status_id=:status_id');
+        $stmt->bindParam(':status_id', $status_id , PDO::PARAM_INT);
         $stmt->execute();
 
 
@@ -17,7 +17,7 @@
                       title: "ลบข้อมูลสำเร็จ",
                       type: "success"
                   }, function() {
-                      window.location = "type.php"; //หน้าที่ต้องการให้กระโดดไป
+                      window.location = "status.php"; //หน้าที่ต้องการให้กระโดดไป
                   });
                 }, 1000);
             </script>';
@@ -28,7 +28,7 @@
                       title: "เกิดข้อผิดพลาด",
                       type: "error"
                   }, function() {
-                      window.location = "type.php"; //หน้าที่ต้องการให้กระโดดไป
+                      window.location = "status.php"; //หน้าที่ต้องการให้กระโดดไป
                   });
                 }, 1000);
             </script>';
